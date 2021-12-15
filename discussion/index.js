@@ -135,3 +135,53 @@ function accessElementsInString() {
       alert('value is Invalid'); 
    }  
 }
+
+
+// how to access elements of a string? [] -> array literals
+// [value/index]
+// 0 1 2 nth
+// K a hit ano
+
+// Behavior: If the string provided is an odd number, the middle character does not need to be checked.
+   // d a d  //palindrome
+   // k a y a k  //palindrome
+// we will create a loop through half of the string's characters that checks if the letters at the front and at the back of the string are the same.
+
+
+// Detect if the word is a palindrome.
+function detectPalindrome(){
+   //1. get input first using DOM selectors; repackage using let; (.)dot notation -> .value to get user-input value
+   let word = document.getElementById('word').value;
+   
+   let response = document.getElementById('detectPalindrome');
+   // alert(word); //checker
+   // 2. Validate the data if it is indeed the correct type of info.
+   if (word !== '') {
+      // identify how long the word is
+      let wrdLength = word.length;
+      console.log(wrdLength);
+      // initialization => identify the starting point of the loop
+      // condition => describes how the loop will progress and terminates.
+      // iteration -> how to advance to the next process.
+      for (let index = 0; index < wrdLength / 2; index++) {
+         // instructions that will happen upon each iteration of the loop.
+         // we are trying to get the current element in the string according to the index count
+         // get the last element of the string by deducting 1 in the current length of the string since the index count of each element inside a string starts with 0.
+         if (word[index] !== word[wrdLength - 1 - index]) {
+            // response
+            response.innerHTML = word + '<h3 class="text-primary"> is Not a Palindrome </h3>';
+            } else {
+            console.log(word[index] + ' is the same as ' + word[wrdLength - 1 - index]);
+            // response
+            response.innerHTML = word + '<h3 class="text-success"> is a Palindrome </h3>';
+            }
+         }
+
+      
+      } else {
+         // response
+         response.innerHTML = '<h3 class="text-danger"> The Value is Invalid </h3>';
+      }
+   }
+
+
